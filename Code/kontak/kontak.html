@@ -98,8 +98,19 @@
           </div>
           <div class="col-lg-6">
             <h2>Hubungi Kami</h2>
-            <form action="#" method="POST">
+            <div class="alert alert-success alert-dismissible fade show d-none my-alert" role="alert">
+              <strong>Berhasil!</strong>
+              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            <div class="alert alert-warning alert-dismissible fade show d-none my-alert-fail" role="alert">
+              <strong>Gagal!</strong>
+              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            <form action="https://api.web3forms.com/submit" id="form" method="POST">
               <div class="mb-3">
+                <input type="hidden" name="access_key" value="24704a43-153c-4af2-a044-a71c79443d7c" />
+                <input type="hidden" name="subject" value="New Submission from Web3Forms" />
+                <input type="checkbox" name="botcheck" id="" style="display: none" />
                 <label for="nama" class="form-label">Nama</label>
                 <input type="text" class="form-control" id="nama" name="nama" required />
               </div>
@@ -111,7 +122,12 @@
                 <label for="pesan" class="form-label">Pesan</label>
                 <textarea class="form-control" id="pesan" name="pesan" rows="5" required></textarea>
               </div>
-              <button type="submit" class="btn btn-primary">Kirim Pesan</button>
+              <button type="submit" class="btn btn-primary btn-kirim">Kirim Pesan</button>
+              <button class="btn btn-primary btn-loading d-none" type="button" disabled>
+                <span class="spinner-border spinner-border-sm" aria-hidden="true"></span>
+                <span role="status">Loading...</span>
+              </button>
+              <div id="result"></div>
             </form>
           </div>
         </div>
@@ -215,5 +231,55 @@
         <span>Temas</span>
       </div>
     </footer>
+    <script>
+      const form = document.getElementById("form");
+      const result = document.getElementById("result");
+      const btnKirim = document.querySelector(".btn-kirim");
+      const btnLoading = document.querySelector(".btn-loading");
+      const myAlert = document.querySelector(".my-alert");
+      const myAlertFail = document.querySelector(".my-alert-fail");
+
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+        const formData = new FormData(form);
+        const object = Object.fromEntries(formData);
+        const json = JSON.stringify(object);
+        btnLoading.classList.toggle("d-none");
+        btnKirim.classList.toggle("d-none");
+
+        fetch("https://api.web3forms.com/submit", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+          body: json,
+        })
+          .then(async (response) => {
+            let json = await response.json();
+            if (response.status == 200) {
+              btnLoading.classList.toggle("d-none");
+              btnKirim.classList.toggle("d-none");
+              myAlert.classList.toggle("d-none");
+            } else {
+              btnKirim.classList.toggle("d-none");
+              btnLoading.classList.toggle("d-none");
+              myAlertFail.classList.toggle("d-none");
+            }
+          })
+          .catch((error) => {
+            console.log(error);
+            btnLoading.classList.toggle("d-none");
+            btnKirim.classList.toggle("d-none");
+            myAlertFail.classList.toggle("d-none");
+          })
+          .then(function () {
+            form.reset();
+            setTimeout(() => {
+              result.style.display = "none";
+            }, 3000);
+          });
+      });
+    </script>
   </body>
 </html>
