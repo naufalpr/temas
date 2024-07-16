@@ -1,6 +1,6 @@
 async function fetchImages() {
     try {
-      const response = await fetch('../../cms/fetch/fetch_galeri.php'); // Assuming fetch_galeri.php is in cms folder
+      const response = await fetch('../../../../temasfull/cms/fetch/fetch_galeri.php'); // Assuming fetch_galeri.php is in cms folder
       const data = await response.json();
   
       const gallery = document.getElementById('gallery');
@@ -33,4 +33,3 @@ async function fetchImages() {
   
   // Call the fetchImages function after the DOM is loaded
   document.addEventListener('DOMContentLoaded', fetchImages);
-  
