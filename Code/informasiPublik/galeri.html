@@ -26,19 +26,23 @@
           <div class="container">
             <table>
               <tr>
-                <td>
-                  <a href="../../../index.html">
-                    <img height="40" data-sticky-top="33" src="../../Assets/Logo_Kota_Batu,_Jawa_Timur_(Seal_of_Batu,_East_Java).svg" />
-                  </a>
-                </td>
-                <td>
-                  <h5>
-                    <a href="../../../index.html" class="text-dark">
-                      <strong>Kelurahan Temas </strong>
-                      <br />Kota Batu
-                    </a>
-                  </h5>
-                </td>
+                  <td>
+                    <div class="pb-2">
+                      <a href="index.html">
+                        <img height="40" data-sticky-top="33" src="../../Assets/Logo_Kota_Batu,_Jawa_Timur_(Seal_of_Batu,_East_Java).svg"/>
+                      </a>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="ps-2">
+                      <h5>
+                        <a href="index.html" class="text-dark">
+                            <strong>Kelurahan Temas </strong>
+                            <br/>Kota Batu 
+                        </a>
+                    </h5>
+                    </div>
+                  </td>
               </tr>
             </table>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -107,73 +111,48 @@
       </ul>
     </nav>
 
-    <h2 style="text-align: center; margin: 30px 0 -20px 0;">Galeri</h2>
-    <h4></h4>
-
-    <div class="container my-5">
-      <div class="row mb-4 gx-3 gy-3">
-        <div class="col-md-3">
-          <div class="card">
-            <img src="#" class="card-img-top" alt="galeri1" style="max-height: 200px; min-height: 200px;"/>
-          </div>
-        </div>
-        <div class="col-md-3">
-            <div class="card">
-              <img src="#" class="card-img-top" alt="galeri2" style="max-height: 200px; min-height: 200px;"/>
-            </div>
-          </div>
-          <div class="col-md-3">
-            <div class="card">
-              <img src="#" class="card-img-top" alt="galeri3" style="max-height: 200px; min-height: 200px;"/>
-            </div>
-          </div>
-        <div class="col-md-3">
-          <div class="card">
-            <img src="#" class="card-img-top" alt="galeri4" style="max-height: 200px; min-height: 200px;"/>
-          </div>
-        </div>
-        <div class="col-md-3">
-            <div class="card">
-              <img src="#" class="card-img-top" alt="galeri5" style="max-height: 200px; min-height: 200px;"/>
-            </div>
-          </div>
-          <div class="col-md-3">
-            <div class="card">
-              <img src="#" class="card-img-top" alt="galeri6" style="max-height: 200px; min-height: 200px;"/>
-            </div>
-          </div>
-          <div class="col-md-3">
-            <div class="card">
-              <img src="#" class="card-img-top" alt="galeri7" style="max-height: 200px; min-height: 200px;"/>
-            </div>
-          </div>
-          <div class="col-md-3">
-            <div class="card">
-              <img src="#" class="card-img-top" alt="galeri8" style="max-height: 200px; min-height: 200px;"/>
-            </div>
-          </div>
-          <div class="col-md-3">
-            <div class="card">
-              <img src="#" class="card-img-top" alt="galeri9" style="max-height: 200px; min-height: 200px;"/>
-            </div>
-          </div>
-          <div class="col-md-3">
-            <div class="card">
-              <img src="#" class="card-img-top" alt="galeri10" style="max-height: 200px; min-height: 200px;"/>
-            </div>
-          </div>
-          <div class="col-md-3">
-            <div class="card">
-              <img src="#" class="card-img-top" alt="galeri11" style="max-height: 200px; min-height: 200px;"/>
-            </div>
-          </div>
-          <div class="col-md-3">
-            <div class="card">
-              <ul id="gallery"></ul>
-            </div>
-          </div>
+    <section>
+      <div class="container mt-5">
+        <h2 style="text-align: center; margin: 30px 0 -20px 0;">Galeri</h2>
       </div>
-    </div>
+      
+      <div class="container">
+        <div class="row mb-4 gx-3 gy-3">
+          <div id="gallery"></div>
+        </div>
+      </div>
+      
+    
+      <div class="modal fade" id="details" tabindex="-1" aria-labelledby="desc" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-indicators"></div>
+                <div class="carousel-inner">
+                  <div id="carousel"></div>     
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Next</span>
+                </button>
+              </div>
+            <div class="modal-footer">
+              <p>description here</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+
     
 
     <footer id="footer" class="mt-5">
@@ -254,5 +233,7 @@
       </div>
     </footer>
     <script src="../../js/fetch_galeri.js"></script>
+    
   </body>
+     
 </html>
