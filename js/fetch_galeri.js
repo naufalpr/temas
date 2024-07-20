@@ -10,9 +10,9 @@ async function fetchImagesVideos() {
         data.forEach(image => {
           const imageElement = document.createElement('img');
 
-          imageElement.classList.add('col', 'p-3', 'clickable-image');
           imageElement.src = image.assets;
-          imageElement.alt = image.alt_text;
+          imageElement.alt = alt_text;
+          imageElement.classList.add('col', 'p-3', 'clickable-image');
           imageElement.dataset.bsToggle = "modal";
           imageElement.dataset.bsTarget = "#details";
           imageElement.style.cursor = "pointer";
@@ -20,25 +20,6 @@ async function fetchImagesVideos() {
           imageElement.style.height = '200px';
 
           gallery.appendChild(imageElement);
-        });
-
-        data.forEach(video => {
-          const thumbnailElement = document.createElement('video');
-
-          thumbnailElement.classList.add('col-6');
-          thumbnailElement.classList.add('p-3');
-          thumbnailElement.controls;
-          thumbnailElement.src = video.img_vid_path + '#t=15';
-          thumbnailElement.alt = video.alt_text;
-          thumbnailElement.classList.add('clickable-image');
-          thumbnailElement.dataset.bsToggle = "modal";
-          thumbnailElement.dataset.bsTarget = "#details";
-          thumbnailElement.style.cursor = "pointer";
-          thumbnailElement.style.width = '300px';
-          thumbnailElement.style.height = '200px';
-
-          gallery.appendChild(thumbnailElement);
-
         });
 
       } else {

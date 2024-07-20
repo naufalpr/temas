@@ -13,7 +13,7 @@ if ($stm = $connect->prepare($sql)) {
 
   if ($result->num_rows > 0) {
     while ($record = $result->fetch_assoc()) {
-      $base_path = '/temasfull/cms/informasiPublik/assets';
+      $base_path = '/temasfull/cms/informasiPublik/galeri/';
       $image_data = [
         'id' => $record['id'],
         'username' => $record['username'],
