@@ -11,7 +11,7 @@ async function fetchImagesVideos() {
           const imageElement = document.createElement('img');
 
           imageElement.classList.add('col', 'p-3', 'clickable-image');
-          imageElement.src = image.img_vid_path;
+          imageElement.src = image.assets;
           imageElement.alt = image.alt_text;
           imageElement.dataset.bsToggle = "modal";
           imageElement.dataset.bsTarget = "#details";
